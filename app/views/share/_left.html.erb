@@ -31,7 +31,11 @@
     </tbody>
   </table>
   <div class="text-right">
-    <%= link_to("结算","#",:class => "btn btn-small btn-primary",:style => "color:#ffffff;")   %>
+    <% if signed_in? %>
+      <%= link_to("结算","#",:class => "btn btn-small btn-primary",:style => "color:#ffffff;")   %>
+    <% else %>
+      <%= link_to("登录并结算","#",:class => "btn btn-small btn-primary",:style => "color:#ffffff;")   %>
+    <% end %>
     <%= link_to("<i class='icon-shopping-cart'></i>清空购物车".html_safe,cart_path(@cart),:remote => true,:method => :DELETE,:class => "btn btn-small",:style => "color:#000000;")   %>
   </div>
   <br/>

@@ -31,6 +31,6 @@ class Book < ActiveRecord::Base
 
 
   def get_total(cart)
-    self.price * get_num(cart)
+    sprintf("%.2f",self.price * get_num(cart)).to_f
   end
 end
