@@ -1,0 +1,31 @@
+<% 
+  if @books.length % 3 == 0
+    rows = @books.length / 3
+  else
+    rows = @books.length / 3 + 1
+  end
+  for i in 0...rows 
+%>
+  <p>
+  <div class="row-fluid">
+    <% 
+      for j in (i*3)...(i*3+3) 
+        if @books[j].nil?
+          break
+        end
+    %>
+      <div class="span4 text-center">
+        <%= link_to image_tag(@books[j].img_url, :class => "img-polaroid"),book_path(@books[j]) %>
+        <div class="row-fluid">
+          <div class="span12"><br/><strong><%= link_to @books[j].name,book_path(@books[j]) %></strong><em>(<%= Book::Stock[@books[j].stock] %>)</em></div>
+          <div class="span12" style="color:#ff0000;font-size:20px;"><br/>&yen;<%= @books[j].price %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  </p>
+  <br/>
+<% end %>
+<div class="text-center">
+  <%= paginate @books %>
+</div>

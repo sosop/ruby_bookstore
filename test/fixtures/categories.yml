@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  publish_status: 
+  priority: 
+
+two:
+  name: MyString
+  publish_status: 
+  priority: 
