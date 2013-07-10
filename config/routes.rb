@@ -2,6 +2,10 @@ Demo3::Application.routes.draw do
 
   resources :users
 
+  #resources :sessions, only: [:create,:destroy]
+
+  match "signin" => "sessions#create"
+  match "logout" => "sessions#destroy"
 
   get "cart_book/create"
 

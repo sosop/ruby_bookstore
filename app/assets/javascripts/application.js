@@ -37,19 +37,38 @@ $(function(){
   $(".close").click(function(){
     $(this).parent(".alert").fadeOut();
   })
-  /*
-  $("#clearCart").click(function(){
-    if(!window.confirm("确定要清空吗？")){
+
+  $("#user_login").click(function(){
+    var email = $("#user_email").val();
+    var password = $("#user_password").val();
+    if($.trim(email) == "" || $.trim(password) == ""){
+      alert("email or password is null!");
       return;
     }
-    id = $(this).attr("val")
     $.ajax({
-      type: "DELETE",
-      url:  "/carts/" + id,
-      success: function(msg){
-        $("#opt").hide();
+      type: "POST",
+      url:  "/signin",
+      data: {email: email,password: password},
+      success: function(user){
+        if(user == -1){
+          alert("登录失败");
+        } else{
+        
+        }
       }
     });
-  });*/
+  });
+
+  $("#user_logout").click(function(){
+    if(!window.confirm("确定退出")){
+      return;
+    }
+    $.ajax({
+      type: "DELETE",
+      url:  "/logout",
+      success: function(msg){
+      }
+    });
+  });
 });
 

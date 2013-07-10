@@ -38,7 +38,7 @@
           <div class="nav-collapse collapse">
             <!-- .nav, .navbar-search, .navbar-form, etc -->
             <span class="brand" style="font-size:10px;float:right;">
-              <span style="cursor:pointer;" data-toggle="modal" data-target="#loginDialog">登录</span> | <span style="cursor:pointer;" data-toggle="modal" data-target="#regDialog">注册</span>
+              <%= render "share/login_logout"%>
             </span>
           </div>
         </div>
@@ -102,23 +102,23 @@
     <div class="modal-body" style="padding-left:180px;">
       <p>
       <div class="control-group">
-        <label class="control-label" for="inputUsername">用户名</label>
+        <label class="control-label" for="session[email]">Email</label>
         <div class="controls">
-          <input type="text" id="inputUsername" placeholder="用户名">
+          <input type="text" id="user_email" name="session[email]"  placeholder="email">
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="inputPassword">密码</label>
+        <label class="control-label" for="session[password]">密码</label>
         <div class="controls">
-          <input type="password" id="inputPassword" placeholder="密码">
+          <input type="password" id="user_password" name="session[password]" placeholder="密码">
         </div>
       </div>
       <div class="control-group">
         <div class="controls">
           <label class="checkbox">
-            <input type="checkbox"> 记住一周
+            <input type="checkbox" name="session[remenber]" id="remenber_a_week"> 记住一周
           </label>
-          <button type="submit" class="btn btn-primary">登录</button>
+          <button class="btn btn-primary" id="user_login">登录</button>
         </div>
       </div>
       </p>
