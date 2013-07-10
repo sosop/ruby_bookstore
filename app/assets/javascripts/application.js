@@ -53,7 +53,7 @@ $(function(){
         if(user == -1){
           alert("登录失败");
         } else{
-        
+          $("#loginDialog").modal('hide');
         }
       }
     });
