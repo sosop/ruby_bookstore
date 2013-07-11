@@ -70,5 +70,13 @@ $(function(){
       }
     });
   });
+
+  $("#login_and_pay").click(function(){
+    $("#loginDialog").modal("show");
+  });
+  $("#login_reg").click(function(){
+    $("#loginDialog").modal("hide");
+    $("#regDialog").modal("show");
+  });
 });
 
